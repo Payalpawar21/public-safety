@@ -1,0 +1,24 @@
+<h2>Emergency Dashboard</h2>
+
+<button onclick="sendSOS()" class="btn btn-danger">🚨 SEND SOS</button>
+
+<script>
+async function sendSOS() {
+  navigator.geolocation.getCurrentPosition(async (pos) => {
+    const location = `https://maps.google.com/?q=${pos.coords.latitude},${pos.coords.longitude}`;
+
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    await fetch("http://localhost:5000/api/alerts/send", {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify({
+        userId: user._id,
+        location: location
+      })
+    });
+
+    alert("SOS Sent!");
+  });
+}
+</script>
