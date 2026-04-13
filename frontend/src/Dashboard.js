@@ -22,7 +22,7 @@ export default function Dashboard() {
     if (!user) {
       window.location.href = "/";
     }
-  }, []);
+  }, [user]);
 
   // 📍 Get Location
   useEffect(() => {
