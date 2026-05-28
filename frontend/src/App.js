@@ -16,6 +16,7 @@ import VolunteerRegister from "./VolunteerRegister";
 
 
 
+
 function Layout() {
   const location = useLocation();
 
@@ -44,6 +45,7 @@ function Layout() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
         <Route path="/volunteer-register" element={<VolunteerRegister />} />
+       
       </Routes>
     </>
   );
