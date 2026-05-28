@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+
 const http = require("http");
 const { Server } = require("socket.io");
 
@@ -15,7 +16,9 @@ const app = express();
 /* -------------------- Middleware -------------------- */
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
-app.use(cors());
+app.use(cors({
+  origin: "*",
+}));
 
 /* -------------------- Routes -------------------- */
 app.use("/api/auth", authRoutes);
@@ -43,14 +46,18 @@ io.on("connection", (socket) => {
 app.set("io", io);
 
 /* -------------------- Database -------------------- */
-mongoose.connect(process.env.MONGO_URI || "mongodb://127.0.0.1:27017/womensafety")
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.log("MongoDB Error:", err));
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log(" MongoDB Connected"))
+  .catch(err => console.log(err));
+
 
 /* -------------------- Health Check -------------------- */
 app.get("/", (req, res) => {
   res.send("API Running Successfully");
 });
+
+
+
 
 /* -------------------- Start Server -------------------- */
 const PORT = process.env.PORT || 5000;
