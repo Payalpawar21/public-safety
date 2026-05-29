@@ -15,19 +15,13 @@ const app = express();
 
 /* -------------------- Middleware -------------------- */
 app.use(express.json({ limit: "10mb" }));
-app.use(express.urlencoded({ extended: true, limit: "10mb" }));
-app.use(express.json({ limit: "10mb" }));
-app.use(express.urlencoded({ extended: true, limit: "10mb" }));
+app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
-  origin: [
-    "https://public-safety-9qxgrtlh4-payalpawar21s-projects.vercel.app"
-  ],
+  origin: "*",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
-
-app.options("*", cors());
 
 /* -------------------- Routes -------------------- */
 app.use("/api/auth", authRoutes);
@@ -40,7 +34,8 @@ const server = http.createServer(app);
 /* -------------------- Socket.IO -------------------- */
 const io = new Server(server, {
   cors: {
-    origin: "*"
+    origin: "*",
+    methods: ["GET", "POST"]
   }
 });
 
@@ -56,17 +51,13 @@ app.set("io", io);
 
 /* -------------------- Database -------------------- */
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log(" MongoDB Connected"))
-  .catch(err => console.log(err));
-
+.then(() => console.log("MongoDB Connected"))
+.catch(err => console.log(err));
 
 /* -------------------- Health Check -------------------- */
 app.get("/", (req, res) => {
-  res.send("API Running Successfully");
+  res.send("Backend Running");
 });
-
-
-
 
 /* -------------------- Start Server -------------------- */
 const PORT = process.env.PORT || 5000;
