@@ -17,7 +17,11 @@ const app = express();
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use(cors({
-  origin: "*",
+  origin: [
+    "https://public-safety-cd66thkra-payalpawar21s-projects.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
 }));
 
 /* -------------------- Routes -------------------- */
