@@ -9,7 +9,7 @@ async function sendSOS() {
 
     const user = JSON.parse(localStorage.getItem("user"));
 
-    await fetch("http://localhost:5000/api/alerts/send", {
+    await fetch("https://public-safety-4ipy.onrender.com/api/alerts/send", {
       method: "POST",
       headers: {"Content-Type":"application/json"},
       body: JSON.stringify({
