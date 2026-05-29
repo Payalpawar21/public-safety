@@ -199,7 +199,7 @@ router.post("/forgot-password", async (req, res) => {
     await user.save();
 
     const resetLink =
-      `http://localhost:3000/reset-password/${token}`;
+`https://public-safety-cd66thkra-payalpawar21s-projects.vercel.app/reset-password/${token}`;
 
     await transporter.sendMail({
       to: email,
