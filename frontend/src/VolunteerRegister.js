@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default function VolunteerRegister() {
   const navigate = useNavigate();
 
-  const API = "https://public-safety-1.onrender.com/";
+  const API = "https://public-safety-4ipy.onrender.com";
 
   const [form, setForm] = useState({
     name: "",

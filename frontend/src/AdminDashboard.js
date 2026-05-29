@@ -3,13 +3,13 @@ import React, { useEffect, useState, useRef } from "react";
 import { io } from "socket.io-client";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://public-safety-4ipy.onrender.com");
 
 export default function AdminDashboard() {
   const [alerts, setAlerts] = useState([]);
   const audioRef = useRef(null);
 
-  const API = "http://localhost:5000";
+  const API = "https://public-safety-4ipy.onrender.com";
 
   useEffect(() => {
     const isAdmin = localStorage.getItem("admin");

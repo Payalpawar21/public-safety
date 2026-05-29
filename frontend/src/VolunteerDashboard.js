@@ -7,7 +7,7 @@ export default function VolunteerDashboard() {
   const [loading, setLoading] = useState(true);
 
   const user = JSON.parse(localStorage.getItem("user"));
-  const API = "https://public-safety-1.onrender.com/";
+  const API = "https://public-safety-4ipy.onrender.com";
 
   useEffect(() => {
     if (!user || user.role !== "volunteer") {

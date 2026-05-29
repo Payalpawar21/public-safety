@@ -9,7 +9,7 @@ export default function ResetPassword() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const API = "https://public-safety-1.onrender.com/";
+  const API = "https://public-safety-4ipy.onrender.com";
 
   const reset = async () => {
     if (!password.trim()) {

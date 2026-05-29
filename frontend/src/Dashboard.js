@@ -9,7 +9,7 @@ export default function Dashboard() {
   const user = JSON.parse(localStorage.getItem("user"));
 
   // 🔥 IMPORTANT (mobile API fix)
-  const API = "https://public-safety-1.onrender.com";
+  const API = "https://public-safety-4ipy.onrender.com";
 
   // 👨‍👩‍👧 Multiple contacts
   const contacts =

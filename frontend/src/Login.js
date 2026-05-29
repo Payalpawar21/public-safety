@@ -7,7 +7,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const API = "https://public-safety-1.onrender.com/";
+  const API = "https://public-safety-4ipy.onrender.com";
 
   const login = async () => {
     try {
