@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export default function Register() {
   const navigate = useNavigate();
 
-  const API = "http://localhost:5000";
+  const API = "https://public-safety-1.onrender.com/";
 
   const [form, setForm] = useState({
     name: "",

@@ -5,7 +5,7 @@ export default function ForgotPassword() {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const API = "http://localhost:5000";
+  const API = "https://public-safety-1.onrender.com/";
 
   const sendLink = async () => {
     if (!email.trim()) {

@@ -11,7 +11,7 @@ export default function Profile() {
     user?.emergencyContacts || []
   );
 
-  const API = "http://localhost:5000";
+  const API = "https://public-safety-1.onrender.com/";
 
   const handlePhoto = (e) => {
     const file = e.target.files[0];

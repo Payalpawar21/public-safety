@@ -7,7 +7,7 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const API = "http://localhost:5000";
+  const API = "https://public-safety-1.onrender.com/";
 
   const login = async () => {
     try {
